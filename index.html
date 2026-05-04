@@ -282,14 +282,15 @@
         margin: 2rem 0;
       }
       .arco-wide {
-        width: 100%;
-        height: 100px;
+        width: 95.2%;
+        height: 80px;
         border: 2px solid #26874e;
         border-bottom: none;
-        border-radius: 300px 300px 0 0;
+        border-radius: 60px 60px 0 0;
         position: absolute;
-        top: 0;
-        left: 0;
+        top: -40;
+        left: 50%;
+        transform: translateX(-50%);
         overflow: visible;
       }
       .box-couple-wide {
@@ -313,23 +314,23 @@
         transform: translateY(20px);
         transition: all 0.8s ease;
       }
-      /* Nomes com fotos circulares */
-      .names-with-photos {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 2rem;
-        flex-wrap: wrap;
-      }
-      .name-side {
+      /* Nomes com fotos - layout vertical centralizado */
+      .names-vertical {
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 1rem;
+        justify-content: center;
+        gap: 1.8rem;
+      }
+      .name-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.8rem;
       }
       .photo-circle {
-        width: 100px;
-        height: 100px;
+        width: 120px;
+        height: 120px;
         border-radius: 50%;
         object-fit: cover;
         border: 2px solid #c8aa64;
@@ -343,7 +344,7 @@
         font-family: "Playfair Display", serif;
         font-style: italic;
         font-weight: 700;
-        font-size: 1.6rem;
+        font-size: 1.5rem;
         color: #1a3c48;
         opacity: 0;
         transform: translateY(30px);
@@ -355,14 +356,14 @@
         transform: translateY(0);
         filter: blur(0);
       }
-      .heart-divider {
-        font-size: 2rem;
+      .heart-vertical {
+        font-size: 2.2rem;
         color: #c97e7e;
-        margin: 0 0.5rem;
+        margin: 0.2rem 0;
         opacity: 0;
-        transition: all 0.5s ease 0.5s;
+        transition: all 0.5s ease;
       }
-      .heart-divider.reveal {
+      .heart-vertical.reveal {
         opacity: 1;
       }
 
@@ -421,6 +422,137 @@
         color: #5a6e6e;
         font-weight: 500;
         letter-spacing: 0.5px;
+      }
+
+      /* SAVE THE DATE - ESTILO EDITORIAL */
+      .save-the-date-container {
+        max-width: 750px;
+        margin: 2rem auto 2rem;
+        padding: 1rem 0.5rem;
+        text-align: center;
+        background: transparent;
+      }
+      .std-title {
+        font-family: "Playfair Display", serif;
+        font-size: 2.2rem;
+        letter-spacing: 10px;
+        text-transform: uppercase;
+        font-weight: 600;
+        color: #2c5a6e;
+        margin-bottom: 0.5rem;
+        opacity: 0;
+        transform: translateY(20px);
+        filter: blur(4px);
+        transition: all 0.8s ease;
+      }
+      .std-title span.script-the {
+        font-family: "Great Vibes", cursive;
+        font-size: 2rem;
+        letter-spacing: 2px;
+        text-transform: lowercase;
+        font-weight: 400;
+        margin: 0 4px;
+        display: inline-block;
+        position: relative;
+        top: -6px;
+        color: #b38f6a;
+      }
+      .std-month {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.2rem;
+        letter-spacing: 8px;
+        text-transform: uppercase;
+        font-weight: 500;
+        color: #26874e;
+        margin-top: -0.3rem;
+        margin-bottom: 1.8rem;
+        opacity: 0;
+        transform: translateY(15px);
+        filter: blur(2px);
+        transition: all 0.7s ease 0.15s;
+      }
+      .day-number-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+        margin: 1rem 0 0.5rem;
+        position: relative;
+        flex-wrap: wrap;
+      }
+      .side-info {
+        font-family: "Cormorant Garamond", serif;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-size: 0.9rem;
+        color: #3b6e5b;
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        opacity: 0;
+      }
+      .side-info.left {
+        transform: translateX(-25px);
+        transition: all 0.6s ease 0.35s;
+      }
+      .side-info.right {
+        transform: translateX(25px);
+        transition: all 0.6s ease 0.35s;
+      }
+      .side-line {
+        width: 48px;
+        height: 0.8px;
+        background-color: #c8aa64;
+        display: inline-block;
+      }
+      .big-day-number {
+        font-family: "Playfair Display", serif;
+        font-size: 8rem;
+        font-weight: 600;
+        line-height: 1;
+        color: #2c5a6e;
+        letter-spacing: -2px;
+        opacity: 0;
+        transform: scale(0.92);
+        transition: all 0.7s cubic-bezier(0.2, 0.9, 0.4, 1.1) 0.3s;
+      }
+      .year-sub {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1rem;
+        letter-spacing: 3px;
+        color: #8a9aa0;
+        margin-top: 0.25rem;
+        opacity: 0;
+        transform: translateY(8px);
+        transition: all 0.6s ease 0.5s;
+      }
+      .std-animate .std-title {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+      }
+      .std-animate .std-month {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+      }
+      .std-animate .side-info.left {
+        opacity: 1;
+        transform: translateX(0);
+      }
+      .std-animate .side-info.right {
+        opacity: 1;
+        transform: translateX(0);
+      }
+      .std-animate .big-day-number {
+        opacity: 1;
+        transform: scale(1);
+      }
+      .std-animate .year-sub {
+        opacity: 1;
+        transform: translateY(0);
       }
 
       /* CALENDÁRIO */
@@ -482,22 +614,12 @@
         text-align: center;
         margin: 1rem 0;
       }
-      .day-name {
-        font-family: "Cormorant Garamond";
-        font-size: 3rem;
-        font-weight: 600;
-        color: #2c5a6e;
-      }
-      .day-detail {
-        font-size: 1.2rem;
-        color: #5b8cae;
-      }
       .location-wrapper {
         display: inline-flex;
         align-items: center;
         justify-content: center;
         gap: 8px;
-        margin: 1rem 0 0.5rem;
+        margin: 0.5rem 0 0.8rem;
         font-size: 1rem;
         color: #3a6b80;
       }
@@ -509,6 +631,12 @@
         background-size: contain;
         background-repeat: no-repeat;
         background-position: center;
+      }
+      .map-btn-custom {
+        margin-top: 0.5rem;
+        background: white;
+        color: #26874e;
+        border-color: #26874e;
       }
 
       /* COUNTDOWN */
@@ -642,7 +770,7 @@
         }
       }
 
-      /* MENSAGENS - com cartão exemplo e indicador */
+      /* MENSAGENS */
       .messages-card {
         background: #f4faf8;
         border-radius: 48px;
@@ -727,15 +855,24 @@
       }
 
       @media (max-width: 700px) {
+        .photo-circle {
+          width: 90px;
+          height: 90px;
+        }
         .name-text {
           font-size: 1.2rem;
         }
-        .photo-circle {
-          width: 70px;
-          height: 70px;
+        .big-day-number {
+          font-size: 5rem !important;
         }
-        .day-name {
-          font-size: 2rem;
+        .day-number-wrapper {
+          gap: 0.8rem;
+        }
+        .side-line {
+          width: 24px;
+        }
+        .side-info {
+          font-size: 0.7rem;
         }
         .welcome-title {
           font-size: 2.5rem;
@@ -749,9 +886,6 @@
         }
         .section-title {
           font-size: 2rem;
-        }
-        .names-with-photos {
-          gap: 1rem;
         }
       }
     </style>
@@ -803,29 +937,29 @@
         <div id="typewriterIntro" class="typewriter-area"></div>
       </div>
 
-      <!-- Arco com nomes e fotos circulares -->
+      <!-- Arco com nomes e fotos - layout vertical (Rafaela acima, Romeu abaixo) -->
       <div class="container arch-full scene-block" id="coupleScene">
         <div class="arco-wide"></div>
         <div class="box-couple-wide">
           <div class="couple-title" id="coupleTitle">Os Noivos</div>
           <div class="deco-line-gold"></div>
-          <div class="names-with-photos">
-            <div class="name-side">
+          <div class="names-vertical">
+            <div class="name-item">
               <img
                 src="Rafaela.jpeg"
                 class="photo-circle"
                 alt="Rafaela"
-                onerror="this.src = 'https://placehold.co/100x100?text=Rafaela'"
+                onerror="this.src = 'https://placehold.co/120x120?text=Rafaela'"
               />
               <div class="name-text" id="nameBride">Rafaela Macuácua</div>
             </div>
-            <div class="heart-divider" id="heartDiv">♡</div>
-            <div class="name-side">
+            <div class="heart-vertical" id="heartDiv">♡</div>
+            <div class="name-item">
               <img
                 src="Romeu.jpeg"
                 class="photo-circle"
                 alt="Romeu"
-                onerror="this.src = 'https://placehold.co/100x100?text=Romeu'"
+                onerror="this.src = 'https://placehold.co/120x120?text=Romeu'"
               />
               <div class="name-text" id="nameGroom">Romeu Fernandes</div>
             </div>
@@ -866,23 +1000,38 @@
       <section id="countdownSection">
         <div class="container">
           <div class="countdown-area" id="countdownContainer"></div>
+        </div>
+      </section>
+
+      <!-- SAVE THE DATE (após countdown, antes do local) -->
+      <div class="container" id="saveTheDateScene">
+        <div class="save-the-date-container" id="stdContainer">
+          <div class="std-title">
+            SAVE<span class="script-the"> the</span>DATE
+          </div>
+          <div class="std-month">JULHO</div>
+          <div class="day-number-wrapper">
+            <div class="side-info left">
+              <span class="side-line"></span>SÁBADO
+            </div>
+            <div class="big-day-number">11</div>
+            <div class="side-info right">
+              ÀS 13H.<span class="side-line"></span>
+            </div>
+          </div>
+          <div class="year-sub">2026</div>
+        </div>
+      </div>
+
+      <section id="locationSection">
+        <div class="container">
           <div class="date-highlight">
-            <div class="day-name">SÁBADO</div>
-            <div class="day-detail">11 de Julho · 14 horas</div>
             <div class="location-wrapper">
               <div class="location-icon"></div>
               <span>Guava, Maputo</span>
             </div>
-            <button
-              class="glass-btn"
-              id="mapBtn"
-              style="
-                margin-top: 0.8rem;
-                background: white;
-                color: #26874e;
-                border-color: #26874e;
-              "
-            >
+            <div style="margin-top: 1rem;">
+             <button class="glass-btn map-btn-custom" id="mapBtn">
               Ver localização
             </button>
           </div>
@@ -944,14 +1093,11 @@
         </div>
       </section>
 
-      <!-- MENSAGENS ESPECIAIS -->
       <section id="messagesSection">
         <div class="container">
           <div class="messages-card">
             <div class="section-title">Mensagens especiais</div>
             <div class="deco-line-gold"></div>
-
-            <!-- Exemplo de mensagem -->
             <div class="msg-example">
               <div class="example-name">Ana Clara</div>
               <div class="example-text">
@@ -959,13 +1105,9 @@
                 muito nesta nova etapa!”
               </div>
             </div>
-
-            <!-- Convite para escrever -->
             <div class="write-invite">
               ✍️ Escreva a sua mensagem para os noivos
             </div>
-
-            <!-- Input para nova mensagem -->
             <div class="msg-input-area">
               <input type="text" id="msgAuthor" placeholder="Seu nome" />
               <textarea
@@ -977,8 +1119,6 @@
                 Enviar mensagem
               </button>
             </div>
-
-            <!-- Lista de mensagens enviadas -->
             <div id="messagesList" style="margin-top: 1rem"></div>
           </div>
         </div>
@@ -1012,7 +1152,6 @@
     </div>
 
     <script>
-      // MÚSICA
       const audio = document.getElementById("bgAudio");
       const musicBtn = document.getElementById("musicToggle");
       const musicLabel = document.getElementById("musicLabel");
@@ -1028,8 +1167,7 @@
               musicStarted = true;
               musicLabel.innerHTML = '<i class="fas fa-music"></i> Ligada';
             })
-            .catch((e) => {
-              console.log("Autoplay bloqueado");
+            .catch(() => {
               musicLabel.innerHTML = '<i class="fas fa-music"></i> Tocar';
             });
         }
@@ -1047,13 +1185,13 @@
         }
       });
 
-      // ABERTURA
       const hero = document.getElementById("heroSection");
       const main = document.getElementById("mainContent");
       const welcomeScene = document.getElementById("welcomeScene");
       const typewriterScene = document.getElementById("typewriterScene");
       const coupleScene = document.getElementById("coupleScene");
       const inviteScene = document.getElementById("inviteScene");
+      const stdContainerDiv = document.getElementById("stdContainer");
 
       let typewriterStarted = false;
 
@@ -1063,16 +1201,13 @@
         startMusic();
         window.scrollTo({ top: 0, behavior: "smooth" });
 
-        setTimeout(() => {
-          welcomeScene.classList.add("visible");
-        }, 400);
+        setTimeout(() => welcomeScene.classList.add("visible"), 400);
         setTimeout(() => {
           typewriterScene.classList.add("visible");
           if (!typewriterStarted) startTypewriter();
         }, 1100);
       });
 
-      // TYPEWRITER
       const introText =
         "O amor que nos une é feito de partilha, cumplicidade e sonhos partilhados. É com o coração transbordante que iniciamos esta nova etapa e desejamos tê-los ao nosso lado.";
       let idx = 0;
@@ -1086,11 +1221,9 @@
           if (idx < introText.length) {
             typeEl.innerHTML += introText.charAt(idx);
             idx++;
-            setTimeout(slowType, 48);
+            setTimeout(slowType, 20);
           } else {
-            setTimeout(() => {
-              revealCoupleScene();
-            }, 800);
+            setTimeout(() => revealCoupleScene(), 800);
           }
         }
         slowType();
@@ -1098,32 +1231,41 @@
 
       function revealCoupleScene() {
         coupleScene.classList.add("visible");
-        setTimeout(() => {
-          document.getElementById("coupleTitle").style.opacity = "1";
-          document.getElementById("coupleTitle").style.transform =
-            "translateY(0)";
-        }, 200);
-        setTimeout(() => {
-          document.getElementById("nameBride").classList.add("reveal");
-        }, 600);
-        setTimeout(() => {
-          document.getElementById("heartDiv").classList.add("reveal");
-        }, 900);
-        setTimeout(() => {
-          document.getElementById("nameGroom").classList.add("reveal");
-        }, 1200);
-        setTimeout(() => {
-          inviteScene.classList.add("visible");
-        }, 1600);
+        setTimeout(
+          () => (document.getElementById("coupleTitle").style.opacity = "1"),
+          200,
+        );
+        setTimeout(
+          () =>
+            (document.getElementById("coupleTitle").style.transform =
+              "translateY(0)"),
+          200,
+        );
+        setTimeout(
+          () => document.getElementById("nameBride").classList.add("reveal"),
+          400,
+        );
+        setTimeout(
+          () => document.getElementById("heartDiv").classList.add("reveal"),
+          700,
+        );
+        setTimeout(
+          () => document.getElementById("nameGroom").classList.add("reveal"),
+          1000,
+        );
+        setTimeout(() => inviteScene.classList.add("visible"), 1400);
         setTimeout(() => {
           enableScrollReveal();
-        }, 2200);
+          if (stdContainerDiv) stdContainerDiv.classList.add("std-animate");
+        }, 2000);
       }
 
       function enableScrollReveal() {
         const sections = [
           "calendarSection",
           "countdownSection",
+          "saveTheDateScene",
+          "locationSection",
           "rsvpSection",
           "albumSection",
           "messagesSection",
@@ -1135,9 +1277,10 @@
               (entries) => {
                 entries.forEach((entry) => {
                   if (entry.isIntersecting) {
-                    setTimeout(() => {
-                      entry.target.classList.add("visible");
-                    }, 200);
+                    setTimeout(
+                      () => entry.target.classList.add("visible"),
+                      200,
+                    );
                     observer.unobserve(entry.target);
                   }
                 });
@@ -1160,7 +1303,6 @@
         hintObserver.observe(albumHint);
       }
 
-      // CALENDÁRIO
       function buildCalendar() {
         const year = 2026,
           month = 6;
@@ -1189,7 +1331,6 @@
       }
       buildCalendar();
 
-      // COUNTDOWN
       let prevValues = { days: 0, hours: 0, minutes: 0, seconds: 0 };
       function updateCountdown() {
         const target = new Date(2026, 6, 11, 14, 0, 0).getTime();
@@ -1204,35 +1345,16 @@
         const hours = Math.floor((diff % 86400000) / 3600000);
         const mins = Math.floor((diff % 3600000) / 60000);
         const secs = Math.floor((diff % 60000) / 1000);
-
-        function addFlipAnimation(elementId, newVal, oldVal) {
-          if (oldVal !== undefined && newVal !== oldVal) {
-            const el = document.getElementById(elementId);
-            if (el) {
-              el.classList.add("flip-animation");
-              setTimeout(() => el.classList.remove("flip-animation"), 200);
-            }
-          }
-        }
-
-        addFlipAnimation("daysDisplay", days, prevValues.days);
-        addFlipAnimation("hoursDisplay", hours, prevValues.hours);
-        addFlipAnimation("minutesDisplay", mins, prevValues.minutes);
-        addFlipAnimation("secondsDisplay", secs, prevValues.seconds);
-
-        prevValues = { days, hours, minutes: mins, seconds: secs };
-
         document.getElementById("countdownContainer").innerHTML = `
-      <div class="cd-card"><div class="cd-number" id="daysDisplay">${days}</div><div class="cd-label">dias</div></div>
-      <div class="cd-card"><div class="cd-number" id="hoursDisplay">${hours}</div><div class="cd-label">horas</div></div>
-      <div class="cd-card"><div class="cd-number" id="minutesDisplay">${mins}</div><div class="cd-label">min</div></div>
-      <div class="cd-card"><div class="cd-number" id="secondsDisplay">${secs}</div><div class="cd-label">seg</div></div>
-    `;
+          <div class="cd-card"><div class="cd-number" id="daysDisplay">${days}</div><div class="cd-label">dias</div></div>
+          <div class="cd-card"><div class="cd-number" id="hoursDisplay">${hours}</div><div class="cd-label">horas</div></div>
+          <div class="cd-card"><div class="cd-number" id="minutesDisplay">${mins}</div><div class="cd-label">min</div></div>
+          <div class="cd-card"><div class="cd-number" id="secondsDisplay">${secs}</div><div class="cd-label">seg</div></div>
+        `;
       }
       setInterval(updateCountdown, 1000);
       updateCountdown();
 
-      // RSVP
       const form = document.getElementById("rsvpForm");
       const formMsg = document.getElementById("formMsg");
       form.addEventListener("submit", (e) => {
@@ -1248,7 +1370,6 @@
         form.reset();
       });
 
-      // MENSAGENS
       let messages = [];
       function renderMessages() {
         const container = document.getElementById("messagesList");
