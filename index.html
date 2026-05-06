@@ -6,9 +6,9 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, viewport-fit=cover"
     />
-    <title>Rafaela Macuácua & Romeu Fernandes | Noivado Premium</title>
+    <title>Rafaela Camila & Romeu Fernandes | Noivado & Casamento</title>
     <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Inter:opsz,wght@14..32,200;14..32,300;14..32,400;14..32,500;14..32,600&family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:opsz,wght@14..32,200;14..32,300;14..32,400;14..32,500;14..32,600&family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
       rel="stylesheet"
     />
     <link
@@ -75,7 +75,6 @@
         transform: translateY(0);
       }
 
-      /* Linha decorativa dourada */
       .deco-line-gold {
         height: 1px;
         background: linear-gradient(
@@ -115,7 +114,6 @@
         }
       }
 
-      /* Título estilo "Seja Bem-Vindo" */
       .section-title {
         font-family: "Great Vibes", cursive;
         font-size: 2.5rem;
@@ -123,10 +121,9 @@
         color: #26874e;
         text-align: center;
         margin-bottom: 0.5rem;
-        letter-spacing: 1px;
       }
 
-      /* Hero */
+      /* === CAPA (HERO) com overlay CINZA/BRANCO transparente (ofusca levemente) === */
       .hero {
         position: fixed;
         top: 0;
@@ -153,16 +150,27 @@
         background-image: url("Capaa.jpeg");
         background-size: cover;
         background-position: center;
+        transform: scale(1.02);
+        transition: transform 8s ease;
+        animation: slowZoom 20s ease infinite alternate;
       }
-      .hero-overlay {
+      @keyframes slowZoom {
+        0% {
+          transform: scale(1);
+        }
+        100% {
+          transform: scale(1.06);
+        }
+      }
+      /* Overlay cinza suave (ofusca levemente a foto para legibilidade do texto) */
+      .hero-overlay-gray {
         position: absolute;
         width: 100%;
         height: 100%;
-        background: linear-gradient(
-          135deg,
-          rgba(0, 0, 0, 0.2) 0%,
-          rgba(0, 0, 0, 0.35) 100%
-        );
+        background: rgba(100, 100, 110, 0.85); /* tom cinza elegante */
+        top: 0;
+        left: 0;
+        z-index: 1;
       }
       .hero-content {
         position: absolute;
@@ -172,13 +180,83 @@
         text-align: center;
         width: 90%;
         z-index: 10;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.2rem;
       }
-      .hero-content h1 {
+      /* elementos com fade-up */
+      .hero-suptitle {
+        font-family: "Inter", sans-serif;
+        font-size: clamp(0.7rem, 4vw, 0.9rem);
+        letter-spacing: 8px;
+        text-transform: uppercase;
+        color: rgba(255, 245, 235, 0.95);
+        font-weight: 400;
+        opacity: 0;
+        transform: translateY(25px);
+        animation: fadeUp 1s ease forwards;
+        animation-delay: 0.2s;
+      }
+      .hero-couple {
         font-family: "Cormorant Garamond", serif;
-        font-size: clamp(2.5rem, 8vw, 4.5rem);
-        font-weight: 500;
+        font-size: clamp(2.4rem, 9vw, 5rem);
+        font-weight: 600;
         color: white;
-        text-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+        text-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+        line-height: 1.2;
+        margin: 0.3rem 0;
+        opacity: 0;
+        transform: translateY(25px);
+        animation: fadeUp 1s ease forwards;
+        animation-delay: 0.5s;
+      }
+      .hero-couple span {
+        font-size: 0.7em;
+        font-weight: 400;
+        display: inline-block;
+        margin: 0 8px;
+      }
+      .hero-divider {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        margin: 0.5rem 0;
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeUp 1s ease forwards;
+        animation-delay: 0.7s;
+      }
+      .hero-line {
+        width: 50px;
+        height: 1px;
+        background: rgba(255, 245, 210, 0.7);
+      }
+      .hero-heart-icon {
+        color: #e6c8a0;
+        font-size: 1rem;
+      }
+      .hero-wedding-date {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(1rem, 5vw, 1.3rem);
+        letter-spacing: 2px;
+        color: rgba(255, 250, 240, 0.95);
+        font-weight: 500;
+        opacity: 0;
+        transform: translateY(25px);
+        animation: fadeUp 1s ease forwards;
+        animation-delay: 0.9s;
+      }
+      @keyframes fadeUp {
+        0% {
+          opacity: 0;
+          transform: translateY(25px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
       }
       .hero-footer {
         position: absolute;
@@ -190,22 +268,27 @@
         flex-direction: column;
         align-items: center;
         gap: 20px;
+        z-index: 15;
       }
-      .glass-btn {
-        background: rgba(255, 255, 255, 0.2);
+      .btn-mint {
+        background: rgba(38, 135, 78, 0.9);
         backdrop-filter: blur(12px);
-        border: 1px solid rgba(200, 170, 100, 0.5);
-        padding: 14px 36px;
+        border: 1px solid rgba(200, 220, 180, 0.7);
+        padding: 14px 38px;
         border-radius: 60px;
         font-family: "Inter", sans-serif;
-        font-weight: 500;
+        font-weight: 600;
         color: #fff;
         cursor: pointer;
         transition: all 0.4s ease;
+        font-size: 1rem;
+        letter-spacing: 1px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
       }
-      .glass-btn:hover {
-        background: rgba(255, 255, 255, 0.35);
-        transform: translateY(-3px);
+      .btn-mint:hover {
+        background: #26874e;
+        transform: translateY(-4px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
       }
       @keyframes bounceFade {
         0% {
@@ -225,25 +308,52 @@
         animation: bounceFade 2s infinite;
         color: white;
         font-size: 1.4rem;
+        text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
       }
 
-      .music-toggle {
+      /* Botão música */
+      .music-note-pulse {
         position: fixed;
-        bottom: 25px;
-        right: 25px;
+        bottom: 28px;
+        right: 28px;
         z-index: 1100;
-        background: rgba(255, 255, 255, 0.85);
+        background: rgba(30, 90, 60, 0.9);
         backdrop-filter: blur(8px);
-        border-radius: 50px;
-        padding: 10px 18px;
-        border: 1px solid #26874e;
-        cursor: pointer;
+        width: 54px;
+        height: 54px;
+        border-radius: 50%;
         display: flex;
-        gap: 8px;
-        font-size: 0.85rem;
-        color: #26874e;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        border: 1px solid #c8e6d4;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+        transition:
+          transform 0.2s ease,
+          background 0.3s;
       }
-
+      .music-note-pulse:hover {
+        transform: scale(1.05);
+        background: #1d6b3e;
+      }
+      .music-note-pulse i {
+        font-size: 1.9rem;
+        color: #ffffff;
+      }
+      .pulse-ring {
+        animation: pulseSoft 1.4s infinite;
+      }
+      @keyframes pulseSoft {
+        0% {
+          box-shadow: 0 0 0 0 rgba(38, 135, 78, 0.5);
+        }
+        70% {
+          box-shadow: 0 0 0 12px rgba(38, 135, 78, 0);
+        }
+        100% {
+          box-shadow: 0 0 0 0 rgba(38, 135, 78, 0);
+        }
+      }
       .main-content {
         opacity: 0;
         transition: opacity 0.5s ease;
@@ -252,6 +362,96 @@
         opacity: 1;
       }
 
+      /* === CONTRA-CAPA (mesma imagem, SEM overlay, bem visível) === */
+      .contracapa-card {
+        position: relative;
+        width: 100%;
+        min-height: 90vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #ffffff;
+        margin: 0;
+        padding: 5rem 1.5rem;
+        opacity: 0;
+        transform: translateY(30px);
+        transition:
+          opacity 1s ease,
+          transform 0.9s ease;
+      }
+      .contracapa-card.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .contracapa-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("Capaa.jpeg");
+        background-size: cover;
+        background-position: center;
+        z-index: 0;
+      }
+      /* SEM OVERLAY - foto totalmente visível, apenas um leve escurecimento para contraste do texto? Não, mantemos sem overlay, apenas um fundo escuro suave opcional? 
+       Para garantir legibilidade do texto branco, aplicamos um tiny gradient sutil somente nas bordas? Mas a foto fica bem visível. 
+       Optamos por nenhum overlay, apenas o texto com sombra para contraste. */
+      .contracapa-content {
+        position: relative;
+        z-index: 3;
+        max-width: 800px;
+        margin: 0 auto;
+        text-align: center;
+        padding: 2rem;
+        background: transparent;
+      }
+      .contra-suptitle {
+        font-family: "Inter", sans-serif;
+        font-size: 1.1rem;
+        letter-spacing: 8px;
+        text-transform: uppercase;
+        color: white;
+        font-weight: 500;
+        margin-bottom: 1.5rem;
+        text-shadow: 0 1px 6px rgba(0, 0, 0, 0.3);
+      }
+      .contra-names {
+        font-family: "Cormorant Garamond", serif;
+        font-size: clamp(2rem, 6vw, 3rem);
+        font-weight: 600;
+        color: white;
+        text-shadow: 0 2px 15px rgba(0, 0, 0, 0.5);
+        line-height: 1.2;
+        margin-bottom: 1rem;
+        margin-top: -0.3rem;
+      }
+      .contra-divider {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        margin: 1.5rem 0 1.8rem;
+      }
+      .contra-line {
+        width: 70px;
+        height: 1px;
+        background: rgba(255, 245, 210, 0.9);
+      }
+      .contra-heart {
+        color: #ffdab9;
+        font-size: 1.2rem;
+      }
+      .contra-date {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(1rem, 4vw, 1.5rem);
+        font-weight: 400;
+        color: white;
+        text-shadow: 0 1px 5px rgba(0, 0, 0, 0.4);
+        letter-spacing: 1px;
+      }
+
+      /* demais estilos já existentes */
       .welcome-scene {
         text-align: center;
         padding: 3rem 0 1rem;
@@ -262,7 +462,6 @@
         color: #26874e;
         letter-spacing: 2px;
       }
-
       .typewriter-area {
         text-align: center;
         max-width: 750px;
@@ -275,7 +474,6 @@
         min-height: 160px;
       }
 
-      /* ARCO EM LARGURA TOTAL */
       .arch-full {
         width: 100%;
         position: relative;
@@ -288,22 +486,23 @@
         border-bottom: none;
         border-radius: 60px 60px 0 0;
         position: absolute;
-        top: -40;
+        top: 0;
         left: 50%;
         transform: translateX(-50%);
-        overflow: visible;
       }
       .box-couple-wide {
         width: 100%;
         margin-top: 55px;
         background: linear-gradient(
           to bottom,
-          rgba(38, 135, 78, 0.05),
+          rgba(40, 141, 82, 0.05),
           transparent
         );
         border-radius: 48px;
         padding: 2rem 1rem;
         text-align: center;
+        position: relative; /* ← SÓ ADICIONAR esta linha */
+        z-index: 2;
       }
       .couple-title {
         font-family: "Great Vibes", cursive;
@@ -314,7 +513,15 @@
         transform: translateY(20px);
         transition: all 0.8s ease;
       }
-      /* Nomes com fotos - layout vertical centralizado */
+      .couple-title {
+        font-family: "Great Vibes", cursive;
+        font-size: 2.5rem;
+        color: #26874e;
+        margin-bottom: 1rem;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.8s ease;
+      }
       .names-vertical {
         display: flex;
         flex-direction: column;
@@ -367,7 +574,6 @@
         opacity: 1;
       }
 
-      /* CARTÃO GLASSMORPHISM */
       .glass-card {
         background: rgba(255, 255, 255, 0.2);
         backdrop-filter: blur(12px);
@@ -376,31 +582,6 @@
         max-width: 600px;
         margin: 2rem auto;
         border: 1px solid rgba(255, 255, 255, 0.4);
-        box-shadow:
-          0 20px 40px -15px rgba(0, 0, 0, 0.15),
-          inset 0 1px 0 rgba(255, 255, 255, 0.5);
-        transition: transform 0.3s ease;
-        position: relative;
-        overflow: hidden;
-      }
-      .glass-card::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: -50%;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(
-          90deg,
-          transparent,
-          rgba(255, 255, 255, 0.3),
-          transparent
-        );
-        transform: skewX(-20deg);
-        pointer-events: none;
-      }
-      .glass-card:hover {
-        transform: translateY(-5px);
       }
       .invite-phrase {
         font-family: "Playfair Display", serif;
@@ -421,16 +602,13 @@
         font-size: 0.8rem;
         color: #5a6e6e;
         font-weight: 500;
-        letter-spacing: 0.5px;
       }
 
-      /* SAVE THE DATE - ESTILO EDITORIAL */
       .save-the-date-container {
         max-width: 750px;
-        margin: 2rem auto 2rem;
+        margin: 2rem auto;
         padding: 1rem 0.5rem;
         text-align: center;
-        background: transparent;
       }
       .std-title {
         font-family: "Playfair Display", serif;
@@ -453,7 +631,6 @@
         font-weight: 400;
         margin: 0 4px;
         display: inline-block;
-        position: relative;
         top: -6px;
         color: #b38f6a;
       }
@@ -464,11 +641,8 @@
         text-transform: uppercase;
         font-weight: 500;
         color: #26874e;
-        margin-top: -0.3rem;
         margin-bottom: 1.8rem;
         opacity: 0;
-        transform: translateY(15px);
-        filter: blur(2px);
         transition: all 0.7s ease 0.15s;
       }
       .day-number-wrapper {
@@ -477,7 +651,6 @@
         justify-content: center;
         gap: 2rem;
         margin: 1rem 0 0.5rem;
-        position: relative;
         flex-wrap: wrap;
       }
       .side-info {
@@ -487,19 +660,10 @@
         letter-spacing: 2px;
         font-size: 0.9rem;
         color: #3b6e5b;
-        position: relative;
         display: flex;
         align-items: center;
         gap: 1rem;
         opacity: 0;
-      }
-      .side-info.left {
-        transform: translateX(-25px);
-        transition: all 0.6s ease 0.35s;
-      }
-      .side-info.right {
-        transform: translateX(25px);
-        transition: all 0.6s ease 0.35s;
       }
       .side-line {
         width: 48px;
@@ -538,11 +702,7 @@
         transform: translateY(0);
         filter: blur(0);
       }
-      .std-animate .side-info.left {
-        opacity: 1;
-        transform: translateX(0);
-      }
-      .std-animate .side-info.right {
+      .std-animate .side-info {
         opacity: 1;
         transform: translateX(0);
       }
@@ -555,7 +715,6 @@
         transform: translateY(0);
       }
 
-      /* CALENDÁRIO */
       .calendar-wrapper {
         background: #f8fbfd;
         border-radius: 48px;
@@ -580,7 +739,6 @@
         font-size: 0.85rem;
         color: #5b8cae;
         margin-bottom: 0.8rem;
-        font-weight: 500;
       }
       .days-grid {
         gap: 8px;
@@ -609,17 +767,12 @@
           transform: scale(1.2);
         }
       }
-
-      .date-highlight {
-        text-align: center;
-        margin: 1rem 0;
-      }
       .location-wrapper {
         display: inline-flex;
         align-items: center;
         justify-content: center;
         gap: 8px;
-        margin: 0.5rem 0 0.8rem;
+        margin: 0.5rem 0;
         font-size: 1rem;
         color: #3a6b80;
       }
@@ -637,9 +790,9 @@
         background: white;
         color: #26874e;
         border-color: #26874e;
+        backdrop-filter: none;
+        background: rgba(255, 255, 255, 0.95);
       }
-
-      /* COUNTDOWN */
       .countdown-area {
         display: flex;
         justify-content: center;
@@ -661,27 +814,18 @@
         font-weight: 700;
         font-family: "Cormorant Garamond";
         color: #26874e;
-        display: inline-block;
-      }
-      .cd-number.flip-animation {
-        transform: rotateX(12deg) scale(1.04);
       }
       .cd-label {
         font-size: 0.7rem;
         text-transform: uppercase;
         color: #4a8a6a;
-        letter-spacing: 1px;
-        margin-top: 4px;
       }
-
-      /* RSVP */
       .rsvp-card {
         background: #eef5f9;
         border-radius: 48px;
         padding: 2rem;
         margin: 1rem auto;
         border: 1px solid rgba(38, 135, 78, 0.2);
-        box-shadow: 0 15px 35px -12px rgba(91, 140, 174, 0.2);
       }
       .rsvp-card input,
       .rsvp-card select {
@@ -690,7 +834,6 @@
         border: 1px solid #cadee8;
         width: 100%;
         margin-bottom: 1rem;
-        font-family: "Inter";
       }
       .send-btn-custom {
         background: #26874e;
@@ -700,35 +843,7 @@
         border-radius: 60px;
         font-weight: 600;
         cursor: pointer;
-        transition: all 0.3s;
         width: 100%;
-        font-family: "Inter";
-      }
-      .send-btn-custom:hover {
-        background: #1d6b3e;
-        transform: translateY(-2px);
-      }
-
-      /* ÁLBUM */
-      .album-header {
-        text-align: center;
-        margin-bottom: 1rem;
-      }
-      .album-hint {
-        text-align: center;
-        font-family: "Playfair Display", serif;
-        font-style: italic;
-        font-size: 0.9rem;
-        color: #5a6e6e;
-        margin-top: -0.3rem;
-        margin-bottom: 1.5rem;
-        opacity: 0;
-        transform: translateY(10px);
-        transition: all 0.6s ease;
-      }
-      .album-hint.visible-hint {
-        opacity: 1;
-        transform: translateY(0);
       }
       .album-flex {
         display: flex;
@@ -769,46 +884,36 @@
           box-shadow: 0 0 0 0 rgba(200, 170, 100, 0);
         }
       }
-
-      /* MENSAGENS */
+      /* SECÇÃO MENSAGENS ESPECIAIS */
       .messages-card {
         background: #f4faf8;
         border-radius: 48px;
         padding: 2rem;
         margin: 2rem 0;
-        border: 1px solid rgba(38, 135, 78, 0.3);
-        box-shadow: 0 20px 35px -12px rgba(38, 135, 78, 0.15);
+        border: 1px solid rgba(38, 135, 78, 0.2);
+        box-shadow: 0 8px 25px rgba(64, 185, 136, 0.08);
       }
-      .msg-example {
-        background: white;
-        border-radius: 20px;
-        padding: 1.2rem;
-        margin: 1.5rem auto;
-        max-width: 350px;
-        border-left: 4px solid #26874e;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-        text-align: left;
-      }
-      .msg-example .example-name {
-        font-weight: 700;
-        color: #26874e;
-        margin-bottom: 0.3rem;
-      }
-      .msg-example .example-text {
-        color: #4a6272;
-        font-style: italic;
-      }
+
       .write-invite {
         text-align: center;
         padding: 1rem;
         margin: 1rem auto;
-        background: rgba(38, 135, 78, 0.08);
+        background: rgba(64, 185, 136, 0.08);
         border-radius: 28px;
         font-family: "Playfair Display", serif;
         font-style: italic;
-        font-size: 0.9rem;
+        font-size: 1rem;
         color: #26874e;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
       }
+
+      .write-invite i {
+        font-size: 1.1rem;
+      }
+
       .msg-input-area input,
       .msg-input-area textarea {
         padding: 14px 20px;
@@ -818,20 +923,123 @@
         margin-bottom: 1rem;
         font-family: "Inter";
         background: white;
+        transition: all 0.3s ease;
       }
+
+      .msg-input-area input:focus,
+      .msg-input-area textarea:focus {
+        outline: none;
+        border-color: #40b988;
+        box-shadow: 0 0 0 3px rgba(64, 185, 136, 0.1);
+      }
+
       .msg-input-area textarea {
         border-radius: 28px;
+        resize: vertical;
       }
+
+      .send-btn-custom {
+        background: #40b988;
+        border: none;
+        color: white;
+        padding: 12px 28px;
+        border-radius: 60px;
+        font-weight: 600;
+        cursor: pointer;
+        width: 100%;
+        font-family: "Inter";
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+      }
+
+      .send-btn-custom:hover {
+        background: #26874e;
+        transform: translateY(-2px);
+      }
+
+      .messages-list-container {
+        margin-top: 2rem;
+        max-height: 400px;
+        overflow-y: auto;
+        padding-right: 0.5rem;
+      }
+
+      .messages-list-container::-webkit-scrollbar {
+        width: 4px;
+      }
+
+      .messages-list-container::-webkit-scrollbar-track {
+        background: #e0e8e5;
+        border-radius: 10px;
+      }
+
+      .messages-list-container::-webkit-scrollbar-thumb {
+        background: #40b988;
+        border-radius: 10px;
+      }
+
       .single-msg {
-        padding: 12px 0;
+        padding: 1rem;
         border-bottom: 1px solid #dce8e5;
         text-align: left;
+        transition: background 0.2s ease;
+        border-radius: 16px;
       }
+
+      .single-msg:hover {
+        background: rgba(64, 185, 136, 0.03);
+      }
+
       .msg-name {
         font-weight: 700;
         color: #26874e;
+        font-family: "Playfair Display", serif;
+        font-size: 1rem;
+        display: inline-block;
+        margin-bottom: 0.3rem;
       }
 
+      .msg-text {
+        color: #4a6272;
+        font-family: "Inter", sans-serif;
+        font-size: 0.9rem;
+        line-height: 1.4;
+        font-style: italic;
+      }
+
+      .msg-text::before {
+        content: '"';
+        margin-right: 4px;
+        color: #40b988;
+        font-size: 0.9rem;
+      }
+
+      .msg-text::after {
+        content: '"';
+        margin-left: 4px;
+        color: #40b988;
+        font-size: 0.9rem;
+      }
+
+      .empty-messages {
+        text-align: center;
+        padding: 2rem;
+        color: #8a9aa0;
+        font-family: "Inter", sans-serif;
+        font-style: italic;
+      }
+
+      @media (max-width: 700px) {
+        .messages-card {
+          padding: 1.5rem;
+        }
+        .single-msg {
+          padding: 0.8rem;
+        }
+      }
       .rr-cursive {
         font-family: "Great Vibes", cursive;
         font-size: 2.5rem;
@@ -844,16 +1052,12 @@
         padding: 2rem;
         text-align: center;
       }
-      .footer-logo {
-        width: 70px;
-        margin: 0 auto 1rem;
-      }
       .footer-logo img {
-        width: 100%;
+        width: 70px;
         border-radius: 50%;
         border: 1px solid #c8aa64;
+        margin-bottom: 1rem;
       }
-
       @media (max-width: 700px) {
         .photo-circle {
           width: 90px;
@@ -865,112 +1069,431 @@
         .big-day-number {
           font-size: 5rem !important;
         }
-        .day-number-wrapper {
-          gap: 0.8rem;
-        }
         .side-line {
           width: 24px;
         }
-        .side-info {
-          font-size: 0.7rem;
+      }
+      /* Estilo para as iniciais R - fundo branco, letra verde */
+      .initial-circle {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        background: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "Great Vibes", cursive;
+        font-size: 3.2rem;
+        font-weight: 600;
+        color: #5dc9a5;
+        border: 2px solid #635c4b;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
+      }
+
+      .initial-circle:hover {
+        transform: scale(1.03);
+        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+      }
+
+      /* Responsivo para mobile */
+      @media (max-width: 700px) {
+        .initial-circle {
+          width: 90px;
+          height: 90px;
+          font-size: 2.2rem;
         }
-        .welcome-title {
-          font-size: 2.5rem;
+      }
+      /* Aura com blur apenas nas bordas */
+      .box-couple-wide::before {
+        content: "";
+        position: absolute;
+        top: -40px;
+        left: -40px;
+        right: -40px;
+        bottom: -40px;
+        background: rgba(60, 229, 144, 0.1); /* Verde bem clarinho */
+        border-radius: 88px;
+        filter: blur(25px);
+        z-index: -1;
+        animation: auraGlow 3s ease-in-out infinite;
+        pointer-events: none;
+      }
+
+      @keyframes auraGlow {
+        0%,
+        100% {
+          opacity: 0.2;
         }
-        .cd-card {
-          min-width: 70px;
-          padding: 0.6rem 0.6rem;
+        50% {
+          opacity: 0.45;
         }
-        .cd-number {
+      }
+      /* Cabeçalho decorativo da seção RSVP */
+      .rsvp-header-deco {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .rsvp-deco-line {
+        width: 60px;
+        height: 1px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          #c8aa64,
+          #c8aa64,
+          transparent
+        );
+      }
+
+      .pulse-calendar {
+        font-size: 1.6rem;
+        color: #40b988;
+        animation: calendarPulse 1.5s ease-in-out infinite;
+      }
+
+      @keyframes calendarPulse {
+        0%,
+        100% {
+          transform: scale(1);
+          opacity: 0.6;
+        }
+        50% {
+          transform: scale(1.15);
+          opacity: 1;
+          color: #26874e;
+        }
+      }
+
+      /* Título principal */
+      .rsvp-title {
+        font-family: "Playfair Display", serif;
+        font-size: 1.8rem;
+        font-weight: 600;
+        color: #2c5a6e;
+        text-align: center;
+        margin-bottom: 0.75rem;
+        letter-spacing: 1px;
+      }
+
+      /* Subtítulo */
+      .rsvp-subtitle {
+        font-family: "Inter", sans-serif;
+        font-size: 0.9rem;
+        font-weight: 400;
+        color: #6b8b7a;
+        text-align: center;
+        font-style: italic;
+        margin-bottom: 2rem;
+        line-height: 1.4;
+      }
+
+      @media (max-width: 700px) {
+        .rsvp-title {
           font-size: 1.5rem;
         }
-        .section-title {
-          font-size: 2rem;
+        .rsvp-subtitle {
+          font-size: 0.8rem;
+        }
+        .rsvp-deco-line {
+          width: 40px;
+        }
+      }
+      /* SECÇÃO MENSAGENS PRINCIPAIS */
+      .mensagens-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        gap: 1.5rem;
+        margin: 2rem 0;
+      }
+
+      .mensagem-card {
+        background: white;
+        border-radius: 24px;
+        padding: 1.5rem;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        border: 1px solid rgba(64, 185, 136, 0.15);
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
+      }
+
+      .mensagem-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(64, 185, 136, 0.1);
+        border-color: rgba(64, 185, 136, 0.3);
+      }
+
+      .mensagem-header {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .mensagem-inicial {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #40b988, #26874e);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "Great Vibes", cursive;
+        font-size: 1.8rem;
+        font-weight: 600;
+        color: white;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+      }
+
+      .mensagem-nome {
+        font-family: "Playfair Display", serif;
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: #2c5a6e;
+      }
+
+      .mensagem-texto {
+        font-family: "Inter", sans-serif;
+        font-size: 0.9rem;
+        color: #5a6e6e;
+        line-height: 1.5;
+        font-style: italic;
+        padding-left: 0.5rem;
+        border-left: 3px solid #40b988;
+        margin-top: 0.5rem;
+      }
+
+      .mensagem-texto::before {
+        content: '"';
+        font-size: 1.2rem;
+        color: #40b988;
+        margin-right: 4px;
+      }
+
+      .mensagem-texto::after {
+        content: '"';
+        font-size: 1.2rem;
+        color: #40b988;
+        margin-left: 4px;
+        vertical-align: top;
+      }
+
+      .ver-mais-btn {
+        display: inline-block;
+        background: transparent;
+        border: 2px solid #40b988;
+        color: #40b988;
+        padding: 12px 32px;
+        border-radius: 60px;
+        font-family: "Inter", sans-serif;
+        font-weight: 600;
+        font-size: 0.9rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        margin: 1rem auto 2rem;
+        text-align: center;
+      }
+
+      .ver-mais-btn:hover {
+        background: #40b988;
+        color: white;
+        transform: translateY(-2px);
+      }
+
+      @media (max-width: 700px) {
+        .mensagens-grid {
+          grid-template-columns: 1fr;
+          gap: 1rem;
+        }
+        .mensagem-card {
+          padding: 1rem;
+        }
+        .mensagem-inicial {
+          width: 40px;
+          height: 40px;
+          font-size: 1.4rem;
+        }
+      }
+      /* Rodapé da mensagem com ícone */
+      .mensagem-footer {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 0.5rem;
+        margin-top: 1rem;
+        padding-top: 0.5rem;
+        border-top: 1px solid rgba(64, 185, 136, 0.15);
+        font-size: 0.8rem;
+        color: #40b988;
+      }
+
+      .mensagem-footer i {
+        font-size: 0.9rem;
+        cursor: pointer;
+        transition: transform 0.2s;
+      }
+
+      .mensagem-footer i:hover {
+        transform: translateX(3px);
+      }
+
+      .convite-mensagem {
+        background: rgba(64, 185, 136, 0.05);
+        border-radius: 20px;
+        padding: 1rem;
+        margin-top: 1rem;
+        text-align: center;
+        font-family: "Inter", sans-serif;
+        font-size: 0.85rem;
+        color: #5a6e6e;
+        font-style: italic;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+      }
+
+      .convite-mensagem i {
+        color: #40b988;
+        font-size: 1rem;
+      }
+      .convite-mensagem {
+        background: rgba(64, 185, 136, 0.05);
+        border-radius: 20px;
+        padding: 1rem;
+        margin-top: 1rem;
+        text-align: center;
+        font-family: "Inter", sans-serif;
+        font-size: 0.85rem;
+        color: #5a6e6e;
+        font-style: italic;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+      }
+
+      .convite-mensagem i {
+        color: #40b988;
+        font-size: 1rem;
+      }
+      .msgs-header-deco {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .msgs-deco-line {
+        width: 60px;
+        height: 1px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          #c8aa64,
+          #c8aa64,
+          transparent
+        );
+      }
+
+      .pulse-envelope {
+        font-size: 1.6rem;
+        color: #40b988;
+        animation: envelopePulse 1.5s ease-in-out infinite;
+      }
+
+      @keyframes envelopePulse {
+        0%,
+        100% {
+          transform: scale(1);
+          opacity: 0.6;
+        }
+        50% {
+          transform: scale(1.15);
+          opacity: 1;
+          color: #26874e;
         }
       }
     </style>
   </head>
   <body>
-    <div class="music-toggle" id="musicToggle">
-      <i class="fas fa-music"></i> <span id="musicLabel">Tocar</span>
+    <div id="musicNoteBtn" class="music-note-pulse pulse-ring">
+      <i class="fas fa-music"></i>
     </div>
     <audio id="bgAudio" loop preload="auto">
       <source src="TEEKS - First Time.mp3" type="audio/mpeg" />
     </audio>
 
-    <!-- HERO -->
+    <!-- CAPA: conteúdo do CASAMENTO com overlay cinza suave -->
     <div class="hero" id="heroSection">
       <div class="hero-bg"></div>
-      <div class="hero-overlay"></div>
+      <div class="hero-overlay-gray"></div>
       <div class="hero-content">
-        <h1>
-          Rafaela Macuácua<br /><span style="font-size: 0.8em">&</span
-          ><br />Romeu Fernandes
-        </h1>
-        <div class="deco-line-gold" style="margin: 1rem auto"></div>
-        <div
-          class="hero-date"
-          style="
-            font-family: &quot;Inter&quot;;
-            font-size: 1rem;
-            letter-spacing: 6px;
-            color: white;
-          "
-        >
-          11 DE JULHO · 2026
+        <div class="hero-suptitle">O NOIVADO DE</div>
+        <div class="hero-couple">Rafaela & Romeu</div>
+        <div class="hero-divider">
+          <span class="hero-line"></span>
+          <span class="hero-heart-icon">♡</span>
+          <span class="hero-line"></span>
         </div>
+        <div class="hero-wedding-date">11.07.2026</div>
       </div>
       <div class="hero-footer">
         <div class="bounce-arrow"><i class="fas fa-chevron-down"></i></div>
-        <button class="glass-btn" id="openInviteBtn">Abrir convite</button>
+        <button class="btn-mint" id="openInviteBtn">Abrir convite</button>
       </div>
     </div>
 
-    <!-- MAIN CONTENT -->
     <div class="main-content" id="mainContent">
+      <!-- CONTRA-CAPA: mesmo fundo, SEM OVERLAY (foto total), conteúdo do NOIVADO -->
+      <section id="contraCapa" class="contracapa-card">
+        <div class="contracapa-bg"></div>
+        <!-- sem overlay adicional para foto visível -->
+        <div class="contracapa-content">
+          <div class="contra-suptitle">CELEBRE CONOSCO</div>
+          <div class="contra-names">Rafaela Camila & Romeu Fernandes</div>
+          <div class="contra-divider"></div>
+          <div class="contra-date">Sábado, 11 de Julho de 2026</div>
+        </div>
+      </section>
+
       <div class="container welcome-scene scene-block" id="welcomeScene">
         <div class="welcome-title">Seja Bem-Vindo</div>
         <div class="deco-line-gold"></div>
       </div>
-
       <div class="container scene-block" id="typewriterScene">
         <div id="typewriterIntro" class="typewriter-area"></div>
       </div>
 
-      <!-- Arco com nomes e fotos - layout vertical (Rafaela acima, Romeu abaixo) -->
       <div class="container arch-full scene-block" id="coupleScene">
-        <div class="arco-wide"></div>
         <div class="box-couple-wide">
           <div class="couple-title" id="coupleTitle">Os Noivos</div>
           <div class="deco-line-gold"></div>
           <div class="names-vertical">
             <div class="name-item">
-              <img
-                src="Rafaela.jpeg"
-                class="photo-circle"
-                alt="Rafaela"
-                onerror="this.src = 'https://placehold.co/120x120?text=Rafaela'"
-              />
+              <div class="initial-circle">R</div>
               <div class="name-text" id="nameBride">Rafaela Macuácua</div>
             </div>
             <div class="heart-vertical" id="heartDiv">♡</div>
             <div class="name-item">
-              <img
-                src="Romeu.jpeg"
-                class="photo-circle"
-                alt="Romeu"
-                onerror="this.src = 'https://placehold.co/120x120?text=Romeu'"
-              />
+              <div class="initial-circle">R</div>
               <div class="name-text" id="nameGroom">Romeu Fernandes</div>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- CARTÃO GLASSMORPHISM -->
       <div class="container scene-block" id="inviteScene">
         <div class="glass-card">
-          <div id="invitePhrase" class="invite-phrase">
+          <div class="invite-phrase">
             “É com alegria que convidamos você para celebrar conosco este
             momento único de amor e união. Sua presença tornará este dia ainda
             mais especial.”
@@ -996,14 +1519,11 @@
           </div>
         </div>
       </section>
-
       <section id="countdownSection">
         <div class="container">
           <div class="countdown-area" id="countdownContainer"></div>
         </div>
       </section>
-
-      <!-- SAVE THE DATE (após countdown, antes do local) -->
       <div class="container" id="saveTheDateScene">
         <div class="save-the-date-container" id="stdContainer">
           <div class="std-title">
@@ -1022,7 +1542,6 @@
           <div class="year-sub">2026</div>
         </div>
       </div>
-
       <section id="locationSection">
         <div class="container">
           <div class="date-highlight">
@@ -1030,19 +1549,41 @@
               <div class="location-icon"></div>
               <span>Guava, Maputo</span>
             </div>
-            <div style="margin-top: 1rem;">
-             <button class="glass-btn map-btn-custom" id="mapBtn">
-              Ver localização
-            </button>
+            <div>
+              <button
+                class="btn-mint map-btn-custom"
+                id="mapBtn"
+                style="
+                  background: white;
+                  color: #26874e;
+                  border: 1px solid #26874e;
+                "
+              >
+                Ver localização
+              </button>
+            </div>
           </div>
         </div>
       </section>
-
       <section id="rsvpSection">
         <div class="container" style="max-width: 600px">
           <div class="rsvp-card">
-            <div class="section-title">Confirme sua presença</div>
-            <div class="deco-line-gold"></div>
+            <!-- Cabeçalho decorativo -->
+            <div class="rsvp-header-deco">
+              <span class="rsvp-deco-line"></span>
+              <i class="fas fa-calendar-alt pulse-calendar"></i>
+              <span class="rsvp-deco-line"></span>
+            </div>
+
+            <!-- Título -->
+            <div class="rsvp-title">Confirme a sua Presença</div>
+
+            <!-- Subtítulo -->
+            <div class="rsvp-subtitle">
+              A sua presença é o melhor presente que podemos receber
+            </div>
+
+            <!-- Formulário -->
             <form id="rsvpForm">
               <input
                 type="text"
@@ -1050,8 +1591,8 @@
                 placeholder="Seu nome completo"
               />
               <select id="rsvpStatus">
-                <option>Estarei presente</option>
-                <option>Não poderei comparecer</option>
+                <option>✔ Sim, estarei presente</option>
+                <option>✖ Não poderei comparecer</option>
               </select>
               <button type="submit" class="send-btn-custom">
                 Enviar confirmação
@@ -1068,78 +1609,81 @@
           </div>
         </div>
       </section>
-
       <section id="albumSection">
         <div class="container">
           <div class="album-header">
             <div class="section-title">Nosso álbum</div>
             <div class="deco-line-gold"></div>
             <div id="albumHint" class="album-hint">
-              📸 Clique no botão “+” para adicionar as suas fotos e memórias
-              especiais
+              📸 Clique no botão “+” para adicionar as suas fotos
             </div>
           </div>
           <div class="album-flex">
-            <img src="Foto22.jpeg" class="album-photo" alt="momento" />
-            <img src="WRR.jpeg" class="album-photo" alt="memória" />
-            <img
-              src="Foto33.jpeg"
+            <img src="Foto22.jpeg" class="album-photo" /><img
+              src="WRR.jpeg"
               class="album-photo"
-              alt="carinho"
-              onerror="this.src = 'https://placehold.co/140x140?text=Foto33'"
-            />
+            /><img src="Foto33.jpeg" class="album-photo" />
             <div class="plus-pulse" id="albumPlusBtn">+</div>
           </div>
         </div>
       </section>
-
       <section id="messagesSection">
         <div class="container">
           <div class="messages-card">
+            <!-- Cabeçalho decorativo -->
+            <div class="msgs-header-deco">
+              <span class="msgs-deco-line"></span>
+              <i class="fas fa-envelope pulse-envelope"></i>
+              <span class="msgs-deco-line"></span>
+            </div>
             <div class="section-title">Mensagens especiais</div>
             <div class="deco-line-gold"></div>
-            <div class="msg-example">
-              <div class="example-name">Ana Clara</div>
-              <div class="example-text">
-                “Que este amor continue a florescer. Esperamos que se divirtam
-                muito nesta nova etapa!”
-              </div>
-            </div>
+            <!-- Campo para escrever mensagem -->
             <div class="write-invite">
-              ✍️ Escreva a sua mensagem para os noivos
+              <i class="fas fa-pen-fancy"></i> Escreva a sua mensagem para os
+              noivos
             </div>
             <div class="msg-input-area">
-              <input type="text" id="msgAuthor" placeholder="Seu nome" />
+              <input
+                type="text"
+                id="msgAuthor"
+                placeholder="Seu nome completo"
+              />
               <textarea
                 id="msgText"
                 rows="3"
                 placeholder="Escreva aqui a sua mensagem..."
               ></textarea>
               <button class="send-btn-custom" id="sendMsgBtn">
-                Enviar mensagem
+                <i class="fas fa-paper-plane"></i> Enviar mensagem
               </button>
             </div>
-            <div id="messagesList" style="margin-top: 1rem"></div>
+
+            <!-- Lista de mensagens enviadas -->
+            <div id="messagesList" class="messages-list-container"></div>
           </div>
         </div>
       </section>
+      <!-- SECÇÃO MENSAGENS PRINCIPAIS -->
+      <section id="mensagensPrincipaisSection">
+        <div class="container">
+          <div class="section-title">Mensagens principais</div>
+          <div class="deco-line-gold"></div>
 
-      <div class="rr-cursive">R & R</div>
+          <div id="mensagensGrid" class="mensagens-grid">
+            <!-- As mensagens vão aparecer aqui dinamicamente -->
+          </div>
 
-      <footer>
-        <div class="footer-logo">
-          <img
-            src="logoCD.jpeg"
-            alt="logo"
-            onerror="this.src = 'https://placehold.co/100x100?text=CD'"
-          />
+          <button id="verMaisBtn" class="ver-mais-btn">
+            Ver mais mensagens
+          </button>
         </div>
-        <p style="font-family: &quot;Cormorant Garamond&quot;; font-size: 1rem">
-          Convite criado para Rafaela & Romeu
-        </p>
-        <p style="font-size: 0.7rem">
-          Todos os direitos reservados · Noivado 2026
-        </p>
+      </section>
+      <div class="rr-cursive">R & R</div>
+      <footer>
+        <div class="footer-logo"><img src="logoCD.jpeg" alt="logo" /></div>
+        <p>Convite criado para Rafaela & Romeu</p>
+        <p style="font-size: 0.7rem">Todos os direitos reservados · 2026</p>
         <div class="social-icon">
           <a
             href="https://instagram.com/convitedouradomz"
@@ -1150,11 +1694,9 @@
         </div>
       </footer>
     </div>
-
     <script>
       const audio = document.getElementById("bgAudio");
-      const musicBtn = document.getElementById("musicToggle");
-      const musicLabel = document.getElementById("musicLabel");
+      const musicBtn = document.getElementById("musicNoteBtn");
       let musicPlaying = false,
         musicStarted = false;
 
@@ -1165,11 +1707,8 @@
             .then(() => {
               musicPlaying = true;
               musicStarted = true;
-              musicLabel.innerHTML = '<i class="fas fa-music"></i> Ligada';
             })
-            .catch(() => {
-              musicLabel.innerHTML = '<i class="fas fa-music"></i> Tocar';
-            });
+            .catch(() => {});
         }
       }
 
@@ -1177,35 +1716,35 @@
         if (musicPlaying) {
           audio.pause();
           musicPlaying = false;
-          musicLabel.innerHTML = '<i class="fas fa-music"></i> Tocar';
         } else {
           audio.play().catch(() => {});
           musicPlaying = true;
-          musicLabel.innerHTML = '<i class="fas fa-music"></i> Ligada';
         }
       });
 
       const hero = document.getElementById("heroSection");
       const main = document.getElementById("mainContent");
+      const contra = document.getElementById("contraCapa");
       const welcomeScene = document.getElementById("welcomeScene");
       const typewriterScene = document.getElementById("typewriterScene");
       const coupleScene = document.getElementById("coupleScene");
       const inviteScene = document.getElementById("inviteScene");
       const stdContainerDiv = document.getElementById("stdContainer");
-
       let typewriterStarted = false;
 
       document.getElementById("openInviteBtn").addEventListener("click", () => {
         hero.classList.add("hide-hero");
         main.classList.add("reveal");
         startMusic();
-        window.scrollTo({ top: 0, behavior: "smooth" });
-
-        setTimeout(() => welcomeScene.classList.add("visible"), 400);
+        setTimeout(() => {
+          if (contra) contra.classList.add("visible");
+          contra.scrollIntoView({ behavior: "smooth", block: "start" });
+        }, 120);
+        setTimeout(() => welcomeScene.classList.add("visible"), 800);
         setTimeout(() => {
           typewriterScene.classList.add("visible");
           if (!typewriterStarted) startTypewriter();
-        }, 1100);
+        }, 1300);
       });
 
       const introText =
@@ -1222,9 +1761,7 @@
             typeEl.innerHTML += introText.charAt(idx);
             idx++;
             setTimeout(slowType, 30);
-          } else {
-            setTimeout(() => revealCoupleScene(), 800);
-          }
+          } else setTimeout(() => revealCoupleScene(), 800);
         }
         slowType();
       }
@@ -1233,12 +1770,6 @@
         coupleScene.classList.add("visible");
         setTimeout(
           () => (document.getElementById("coupleTitle").style.opacity = "1"),
-          200,
-        );
-        setTimeout(
-          () =>
-            (document.getElementById("coupleTitle").style.transform =
-              "translateY(0)"),
           200,
         );
         setTimeout(
@@ -1269,6 +1800,7 @@
           "rsvpSection",
           "albumSection",
           "messagesSection",
+          "mensagensPrincipaisSection",
         ];
         sections.forEach((id) => {
           const section = document.getElementById(id);
@@ -1291,16 +1823,18 @@
           }
         });
         const albumHint = document.getElementById("albumHint");
-        const hintObserver = new IntersectionObserver(
-          (entries) => {
-            if (entries[0].isIntersecting) {
-              setTimeout(() => albumHint.classList.add("visible-hint"), 300);
-              hintObserver.unobserve(albumHint);
-            }
-          },
-          { threshold: 0.5 },
-        );
-        hintObserver.observe(albumHint);
+        if (albumHint) {
+          const hintObserver = new IntersectionObserver(
+            (entries) => {
+              if (entries[0].isIntersecting) {
+                setTimeout(() => albumHint.classList.add("visible-hint"), 300);
+                hintObserver.unobserve(albumHint);
+              }
+            },
+            { threshold: 0.5 },
+          );
+          hintObserver.observe(albumHint);
+        }
       }
 
       function buildCalendar() {
@@ -1323,34 +1857,26 @@
           if (d === 11) {
             cell.innerHTML = '11 <span class="heart-pulse-icon">❤️</span>';
             cell.classList.add("day-11");
-          } else {
-            cell.innerText = d;
-          }
+          } else cell.innerText = d;
           container.appendChild(cell);
         }
       }
       buildCalendar();
 
-      let prevValues = { days: 0, hours: 0, minutes: 0, seconds: 0 };
       function updateCountdown() {
         const target = new Date(2026, 6, 11, 14, 0, 0).getTime();
-        const now = new Date().getTime();
-        const diff = target - now;
+        const diff = target - new Date().getTime();
         if (diff <= 0) {
           document.getElementById("countdownContainer").innerHTML =
             '<div class="cd-card"><div class="cd-number">✨</div><div class="cd-label">Seremos noivos</div></div>';
           return;
         }
-        const days = Math.floor(diff / 86400000);
-        const hours = Math.floor((diff % 86400000) / 3600000);
-        const mins = Math.floor((diff % 3600000) / 60000);
-        const secs = Math.floor((diff % 60000) / 1000);
-        document.getElementById("countdownContainer").innerHTML = `
-          <div class="cd-card"><div class="cd-number" id="daysDisplay">${days}</div><div class="cd-label">dias</div></div>
-          <div class="cd-card"><div class="cd-number" id="hoursDisplay">${hours}</div><div class="cd-label">horas</div></div>
-          <div class="cd-card"><div class="cd-number" id="minutesDisplay">${mins}</div><div class="cd-label">min</div></div>
-          <div class="cd-card"><div class="cd-number" id="secondsDisplay">${secs}</div><div class="cd-label">seg</div></div>
-        `;
+        const days = Math.floor(diff / 86400000),
+          hours = Math.floor((diff % 86400000) / 3600000),
+          mins = Math.floor((diff % 3600000) / 60000),
+          secs = Math.floor((diff % 60000) / 1000);
+        document.getElementById("countdownContainer").innerHTML =
+          `<div class="cd-card"><div class="cd-number">${days}</div><div class="cd-label">dias</div></div><div class="cd-card"><div class="cd-number">${hours}</div><div class="cd-label">horas</div></div><div class="cd-card"><div class="cd-number">${mins}</div><div class="cd-label">min</div></div><div class="cd-card"><div class="cd-number">${secs}</div><div class="cd-label">seg</div></div>`;
       }
       setInterval(updateCountdown, 1000);
       updateCountdown();
@@ -1374,19 +1900,27 @@
       function renderMessages() {
         const container = document.getElementById("messagesList");
         if (!container) return;
+
         const lastThree = messages.slice(-3).reverse();
+
         if (lastThree.length === 0) {
           container.innerHTML =
-            '<div class="single-msg" style="text-align:center;"><span class="msg-name">✨ Seja o primeiro a escrever uma mensagem</span></div>';
+            '<div class="empty-messages"><i class="fas fa-heart" style="color: #40b988;"></i><p>✨ Nenhuma mensagem ainda. Seja o primeiro a escrever! ✨</p></div>';
           return;
         }
+
         container.innerHTML = lastThree
           .map(
-            (m) =>
-              `<div class="single-msg"><span class="msg-name">${escapeHtml(m.author)}</span><br><span style="color:#4a6272;">${escapeHtml(m.text)}</span></div>`,
+            (m) => `
+    <div class="single-msg">
+      <div class="msg-name">${escapeHtml(m.author)}</div>
+      <div class="msg-text">${escapeHtml(m.text)}</div>
+    </div>
+  `,
           )
           .join("");
       }
+
       function escapeHtml(str) {
         if (!str) return "";
         return str.replace(/[&<>]/g, function (m) {
@@ -1396,6 +1930,73 @@
           return m;
         });
       }
+
+      // Mensagens principais
+      let mensagensPrincipais = [
+        {
+          autor: "Ana Clara",
+          texto:
+            "Que este amor continue a florescer. Esperamos que se divirtam muito nesta nova etapa!",
+        },
+      ];
+      let mensagensVisiveis = 6;
+
+      function getIniciais(nome) {
+        const partes = nome.split(" ");
+        if (partes.length >= 2) {
+          return (partes[0][0] + partes[1][0]).toUpperCase();
+        }
+        return nome.substring(0, 2).toUpperCase();
+      }
+
+      function renderizarMensagensPrincipais() {
+        const container = document.getElementById("mensagensGrid");
+        if (!container) return;
+        const mensagensParaMostrar = mensagensPrincipais.slice(
+          0,
+          mensagensVisiveis,
+        );
+        const verMaisBtn = document.getElementById("verMaisBtn");
+        if (mensagensVisiveis >= mensagensPrincipais.length) {
+          if (verMaisBtn) verMaisBtn.style.display = "none";
+        } else {
+          if (verMaisBtn) verMaisBtn.style.display = "inline-block";
+        }
+        if (mensagensParaMostrar.length === 0) {
+          container.innerHTML =
+            '<div class="mensagem-card vazia"><div class="mensagem-texto">✨ Nenhuma mensagem ainda. Seja o primeiro a escrever! ✨</div></div>';
+          return;
+        }
+        container.innerHTML = mensagensParaMostrar
+          .map(
+            (msg) => `
+    <div class="mensagem-card">
+      <div class="mensagem-header">
+        <div class="mensagem-inicial">${getIniciais(msg.autor)}</div>
+        <div class="mensagem-nome">${escapeHtml(msg.autor)}</div>
+      </div>
+      <div class="mensagem-texto">${escapeHtml(msg.texto)}</div>
+    </div>
+  `,
+          )
+          .join("");
+      }
+
+      function adicionarMensagemPrincipals(autor, texto) {
+        if (!autor || !texto) return;
+        mensagensPrincipais.unshift({
+          autor: autor.trim(),
+          texto: texto.trim(),
+        });
+        mensagensVisiveis = 6;
+        renderizarMensagensPrincipais();
+      }
+
+      function verMaisMensagens() {
+        mensagensVisiveis += 4;
+        renderizarMensagensPrincipais();
+      }
+
       document.getElementById("sendMsgBtn")?.addEventListener("click", () => {
         const author = document.getElementById("msgAuthor").value.trim();
         const text = document.getElementById("msgText").value.trim();
@@ -1403,6 +2004,7 @@
           alert("Preencha nome e mensagem.");
           return;
         }
+        adicionarMensagemPrincipals(author, text);
         messages.push({ author, text });
         renderMessages();
         document.getElementById("msgAuthor").value = "";
@@ -1421,6 +2023,15 @@
             "📸 Em breve, você poderá adicionar suas fotos ao nosso álbum colaborativo!",
           ),
         );
+
+      // Inicializar mensagens principais
+      document.addEventListener("DOMContentLoaded", function () {
+        renderizarMensagensPrincipais();
+        const verMaisBtn = document.getElementById("verMaisBtn");
+        if (verMaisBtn) {
+          verMaisBtn.addEventListener("click", verMaisMensagens);
+        }
+      });
     </script>
   </body>
 </html>
