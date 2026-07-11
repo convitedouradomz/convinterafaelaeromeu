@@ -2002,7 +2002,7 @@
           <div class="year-sub">2026</div>
         </div>
       </div>
-      <section id="locationSection">
+     <section id="locationSection">
         <div class="container">
           <div class="date-highlight">
             <div class="location-wrapper">
@@ -2020,6 +2020,28 @@
                 "
               >
                 Ver localização
+              </button>
+            </div>
+          </div>
+
+          <!-- CARTÃO COM AS INFORMAÇÕES DE LOCALIZAÇÃO -->
+          <div id="localizacaoInfoContainer" style="display: none; max-width: 450px; margin: 1.5rem auto 0;">
+            <div style="padding: 1.8rem 1.5rem; background: linear-gradient(135deg, #ffffff 0%, #f4faf8 100%); border-radius: 32px; border: 1px solid rgba(64,185,136,0.25); box-shadow: 0 15px 35px rgba(64,185,136,0.15); position: relative;">
+              <button onclick="document.getElementById('localizacaoInfoContainer').style.display='none'" style="position: absolute; top: 12px; right: 16px; background: transparent; border: none; font-size: 1.6rem; cursor: pointer; color: #6b8b7a;">
+                <i class="fas fa-times-circle"></i>
+              </button>
+              <p style="font-family: 'Inter', sans-serif; font-size: 0.95rem; color: #1a2a2f; text-align: center; line-height: 1.6; margin: 0.5rem 0 1rem;">
+                Depois da rotunda do CMC, para quem vai a Mateque, é na primeira casa da terceira rua.
+              </p>
+              <p style="font-family: 'Inter', sans-serif; font-size: 0.9rem; color: #40b988; text-align: center; font-weight: 600; margin-bottom: 1.2rem;">
+                <i class="fas fa-car"></i> Yango: Farmácia Grande Maputo
+              </p>
+              <button
+                class="btn-mint"
+                id="mapBtnReal"
+                style="background: #26874e; color: white; border: none; width: 100%;"
+              >
+                <i class="fas fa-map-marker-alt"></i> Abrir localização no mapa
               </button>
             </div>
           </div>
@@ -2564,11 +2586,18 @@
         document.getElementById("msgText").value = "";
       });
 
-      document
-        .getElementById("mapBtn")
-        ?.addEventListener("click", () =>
-          alert("📍 Guava, Maputo – Localização encantadora"),
-        );
+      document.getElementById("mapBtn")?.addEventListener("click", () => {
+  const container = document.getElementById("localizacaoInfoContainer");
+  if (container) {
+    const abrir = container.style.display === "none" || container.style.display === "";
+    container.style.display = abrir ? "block" : "none";
+    if (abrir) container.scrollIntoView({ behavior: "smooth", block: "center" });
+  }
+});
+
+document.getElementById("mapBtnReal")?.addEventListener("click", () => {
+  window.open("https://maps.app.goo.gl/iodqMytdKmKdQFSZ7", "_blank");
+});
       document
         .getElementById("albumPlusBtn")
         ?.addEventListener("click", () =>
